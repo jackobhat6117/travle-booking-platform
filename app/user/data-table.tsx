@@ -40,7 +40,7 @@ import { Input } from "@/components/ui/input";
 import { DataTableFacetedFilter } from "@/components/custom/faceted-filter";
 import { getDropDownValues } from "@/lib/tableUtils";
 import { DataTablePagination } from "@/components/custom/pagination-controls";
-import { Separator } from "@/components/ui/separator";
+import useStore from "@/store/demo"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -50,8 +50,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
-  //STATES:
+}: DataTableProps<TData, TValue>) { 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -62,10 +61,11 @@ export function DataTable<TData, TValue>({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    //row selection
+
     onRowSelectionChange: setRowSelection,
-    //sorting:
+
     onSortingChange: setSorting,
+
     getSortedRowModel: getSortedRowModel(),
     state: {
       sorting,
@@ -74,28 +74,23 @@ export function DataTable<TData, TValue>({
       rowSelection,
       columnOrder,
     },
-    //pagination:
+
     getPaginationRowModel: getPaginationRowModel(),
-    //Order of columns
+
     onColumnOrderChange: setColumnOrder,
 
-    //filters
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
 
-    //Faceted filters:
     getFacetedUniqueValues: getFacetedUniqueValues(),
     getFacetedRowModel: getFacetedRowModel(),
 
-    //Visibility:
     onColumnVisibilityChange: setColumnVisibility,
 
-    //Control pagination. Default is 10
     initialState: {
       pagination: { pageSize: 5 },
     },
 
-    //This can be added to insert custom functions, accessible :table.options.meta.methodName
     meta: {
       myOwnMethod: () => {
         console.log("Custom method");
@@ -103,8 +98,13 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  //Used to show reset button
+ 
   const isFiltered = table.getState().columnFilters.length > 0;
+  const counter = useStore((state) => state.counter);
+  const increment = useStore((state) => state.increment);
+  const decrement = useStore((state) => state.decrement);
+
+
 
   return (
     <div>
@@ -133,6 +133,12 @@ export function DataTable<TData, TValue>({
           H6 This is a demo page, you can start cloning this folder app/user and
           continue to modify or add files to the folder as your need
         </h6>
+      </div>
+
+      <div>
+      <p>Counter: {counter}</p>
+      <button onClick={increment}>Increment</button>
+ <button onClick={decrement}>Decrement</button>
       </div>
       <div className="flex justify-between py-4">
         <div className="flex gap-3">
