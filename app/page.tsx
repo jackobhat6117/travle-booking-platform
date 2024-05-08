@@ -57,6 +57,34 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <svg
+        className="mt-48"
+          width="1512"
+          height="10"
+          viewBox="0 0 1512 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 5L1510 5.00013"
+            stroke="url(#paint0_linear_1_2462)"
+            stroke-width="8.5"
+            stroke-linecap="round"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1_2462"
+              x1="1332.86"
+              y1="5.00012"
+              x2="9.10595"
+              y2="114.791"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#2FC56D" />
+              <stop offset="0.893826" stop-color="#2FC56D" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   );
