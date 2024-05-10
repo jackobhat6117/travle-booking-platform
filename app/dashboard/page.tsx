@@ -1,22 +1,11 @@
-"use client";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+"use client"; 
 import {
   CardTitle,
   CardDescription,
   CardHeader,
   CardContent,
   Card,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenu,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/card"; 
 import { ResponsiveLine } from "@nivo/line";
 import {
   TableHead,
@@ -26,9 +15,7 @@ import {
   TableBody,
   Table,
 } from "@/components/ui/table";
-import { DashboardIcon } from "@radix-ui/react-icons";
-import Sidebar from "@/components/mainLayout/sidebar";
-import Header from "@/components/mainLayout/header";
+import { DashboardIcon } from "@radix-ui/react-icons"; 
 import MainLayout from "@/components/mainLayout/main";
 
 export default function Dashboard() {

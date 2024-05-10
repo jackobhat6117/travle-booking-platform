@@ -21,12 +21,12 @@ export default function Sidebar() {
   const demoPermission = [
     "view parentItem",
     "view childItemOne",
-    "view analytics",
+    "view dashboard",
     "view users",
-    "view settings",
+    "view roles_and_permission",
   ];
   const { items, parentItems } = permissionMapper(demoPermission);
-  console.log(parentItems);
+ 
 
   return (
     <div className="hidden sticky left-0 z-10 border-r bg-gray-100/40 dark:bg-gray-800/40 lg:block shadow-xl">
@@ -42,20 +42,14 @@ export default function Sidebar() {
         </div>
         <div className="flex-1 overflow-auto py-2">
           <nav className="grid items-start px-4 text-sm font-medium">
-            <Link
-              className="flex items-center gap-3 rounded-lg px-3 text-lg bg-primary py-2 text-white transition-all hover:text-gray-200 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <HomeIcon className="h-4 w-4" />
-              Overview
-            </Link>
+    
 
             {/* Sidebar Items Render */}
             {items.map((item, index) => (
               <Link
                 key={index}
                 className="flex items-center gap-3 rounded-lg px-3 font-bold  py-2 text-secondary text-md transition-all hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                href={item.to} 
               >
                 {item.icon && <item.icon className="h-4 w-4" />}
                 {item.name}
@@ -67,7 +61,7 @@ export default function Sidebar() {
                     
                   ))} */}
 
-            <Accordion className="grid gap-2" collapsible type="single">
+            {/* <Accordion className="grid gap-2" collapsible type="single">
               <AccordionItem value="products">
                 <AccordionTrigger className="flex items-center gap-3 rounded-lg px-3 py-2 text-secondary no-underline transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                   <PackageIcon className="h-4 w-4" />
@@ -131,7 +125,7 @@ export default function Sidebar() {
                   </DropdownMenu>
                 </AccordionContent>
               </AccordionItem>
-            </Accordion>
+            </Accordion> */}
           </nav>
         </div>
       </div>
