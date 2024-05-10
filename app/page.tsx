@@ -1,83 +1,91 @@
 "use client";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { DataTable } from "@/components/ui/dataTable";
 import { Button } from "@/components/ui/button";
-
-
-
-
-import { ColumnDef } from "@tanstack/react-table"
- 
-
-
-
-
+import landingPageMain from "../assets/images/landing_page_main.svg";
+import Image from "next/image";
+import headerLogo from "../assets/images/logo.svg";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { RiLoginCircleLine } from "react-icons/ri";
 export default function Home() {
-  const handleClick = () => {
-    console.log("Button clicked!");
-  };
-   type Payment = {
-    id: string
-    amount: number
-    status: "pending" | "processing" | "success" | "failed"
-    email: string
-  }
-   
-  const columns: ColumnDef<Payment>[] = [
-    {
-      accessorKey: "status",
-      header: "Status",
-    },
-    {
-      accessorKey: "email",
-      header: "Email",
-    },
-    {
-      accessorKey: "amount",
-      header: "Amount",
-    },
-  ]
-  const data=[    {
-    id: "728ed52f",
-    amount: 100,
-    status: "pending",
-    email: "m@example.com",
-  },]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 text-xl">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-          <Button onClick={handleClick} className="mx-4">
-            Button Demo
-          </Button>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button>Open Modal</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Are you absolutely sure?</DialogTitle>
-                <DialogDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </p>
-        <div className="container mx-auto py-10">
-          {/* <DataTable columns={columns} data={data} /> */}
+    <div className="p-2">
+      <div className="z-10 w-full  items-center justify-between font-mono text-sm lg:flex">
+        <div className="fixed left-0 top-0 flex w-full justify-start     text-xl">
+          <Image
+            src={headerLogo}
+            style={{ height: "50px" }}
+            className="ml-24"
+            alt="Picture of the author"
+          />
+        </div>
+        <div className="fixed left-0 top-0 flex w-full justify-end text-xl mt-2">
+          <Link href="/auth/login">
+            <Button className="my-1 mr-8">
+              Login
+              <RiLoginCircleLine className="ml-4"></RiLoginCircleLine>
+            </Button>
+          </Link>
         </div>
       </div>
-    </main>
+
+      <div className="container mt-48">
+        <div className="grid grid-cols-2">
+          <div className="cols-6">
+            <h4 className="text-green-600">Safaricom Distribution Platform</h4>
+            <h3 className="text-6xl mt-8">
+              Welcome to the Safaricom Sales and distribution channel!
+            </h3>
+            <h5 className="text-xl font-thin mt-16">
+              M-PESA application portal enables business and individuals to
+              apply for M-PESA solutions to collect and disburse funds. The
+              portal provides easy step by step process to apply and track your
+              application.
+            </h5>
+          </div>
+          <div className="cols-6">
+            <Image src={landingPageMain} className="ml-24" alt="landing_svg" />
+          </div>
+          <div className="flex justify-start mt-12">
+            <Link href="/auth/login">
+              <Button className="my-1 mr-8 h-10 text-lg">
+                Login And Explore
+                <ArrowRightIcon className=" ml-4 mr-2 mt-1  h-4 w-4" />
+              </Button>
+            </Link>
+            <a href="#" className="ml-4 mt-3 text-green-600">
+              Explore FAQ
+            </a>
+          </div>
+        </div>
+        <svg
+        className="mt-48"
+          width="1512"
+          height="10"
+          viewBox="0 0 1512 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 5L1510 5.00013"
+            stroke="url(#paint0_linear_1_2462)"
+            stroke-width="8.5"
+            stroke-linecap="round"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1_2462"
+              x1="1332.86"
+              y1="5.00012"
+              x2="9.10595"
+              y2="114.791"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#2FC56D" />
+              <stop offset="0.893826" stop-color="#2FC56D" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
   );
 }
