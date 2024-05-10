@@ -40,7 +40,7 @@ import { Input } from "@/components/ui/input";
 import { DataTableFacetedFilter } from "@/components/custom/faceted-filter";
 import { getDropDownValues } from "@/lib/tableUtils";
 import { DataTablePagination } from "@/components/custom/pagination-controls";
-import useStore from "@/store/demo"
+import useStore from "@/store/demo";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -50,7 +50,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) { 
+}: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -98,48 +98,19 @@ export function DataTable<TData, TValue>({
     },
   });
 
- 
   const isFiltered = table.getState().columnFilters.length > 0;
   const counter = useStore((state) => state.counter);
   const increment = useStore((state) => state.increment);
   const decrement = useStore((state) => state.decrement);
 
-
-
   return (
     <div>
-      <div className="flex justify-between py-4">
-        <h1>
-          H1 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h1>
-        <h2>
-          H2 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h2>
-        <h3>
-          H3 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h3>
-        <h4>
-          H4 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h4>
-        <h5>
-          H5 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h5>
-        <h6>
-          H6 This is a demo page, you can start cloning this folder app/user and
-          continue to modify or add files to the folder as your need
-        </h6>
-      </div>
-
-      <div>
-      <p>Counter: {counter}</p>
-      <button onClick={increment}>Increment</button>
- <button onClick={decrement}>Decrement</button>
-      </div>
+  
+        <h4>This is to demonstrate the store functionality, the library used is called Zustand and its amazing unlike redux</h4>
+        <p>Counter: {counter}</p>
+        <Button onClick={increment}>Increment</Button>
+        <Button className="ml-4" onClick={decrement}>Decrement</Button>
+   
       <div className="flex justify-between py-4">
         <div className="flex gap-3">
           <Input
@@ -292,6 +263,33 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="flex justify-end pt-4">
         <DataTablePagination table={table}></DataTablePagination>
+      </div>
+
+      <div className="flex justify-between py-4">
+        <h1>
+          H1 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h1>
+        <h2>
+          H2 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h2>
+        <h3>
+          H3 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h3>
+        <h4>
+          H4 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h4>
+        <h5>
+          H5 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h5>
+        <h6>
+          H6 This is a demo page, you can start cloning this folder app/user and
+          continue to modify or add files to the folder as your need
+        </h6>
       </div>
     </div>
   );

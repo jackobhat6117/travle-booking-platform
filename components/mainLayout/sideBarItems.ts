@@ -1,17 +1,21 @@
-import { BarChartIcon, DashIcon, ListBulletIcon } from "@radix-ui/react-icons";
+import {
+  AvatarIcon,
+  DashboardIcon,
+  ListBulletIcon,
+  LockClosedIcon,
+} from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
-import { ReactElement } from "react";
-import { HiUserCircle } from "react-icons/hi";
-import { MdSettingsApplications } from "react-icons/md";
 
 type ItemType = {
   name: string;
   permissionNeeded: string;
+  to: string;
   icon?: React.ComponentType<IconProps>;
 };
 type ChildItemType = {
   childName: string;
   permissionNeeded: string;
+  to: string;
   icon?: React.ComponentType<IconProps>;
 };
 type ParentItemType = {
@@ -24,36 +28,35 @@ type ParentItemType = {
 export const parentItems: ParentItemType[] = [
   {
     parentName: "Parent Item One",
-    icon:ListBulletIcon,
+    icon: ListBulletIcon,
     permissionNeeded: "view parentItem",
     childItems: [
       {
         childName: "Child Item One",
         permissionNeeded: "view childItemOne",
+        to:"/some_place"
       },
     ],
   },
 ];
 export const items: ItemType[] = [
   {
-    name: "Overview",
-    icon:DashIcon,
-    permissionNeeded: "view overview", 
-  },
-  {
-    name: "Analytics",
-    icon:BarChartIcon,
-    permissionNeeded: "view analytics",
+    name: "Dashboard",
+    icon: DashboardIcon,
+    to: "/dashboard",
+    permissionNeeded: "view dashboard",
   },
   {
     name: "Users",
-    icon:HiUserCircle,
+    icon: AvatarIcon,
+    to: "/users",
     permissionNeeded: "view users",
   },
   {
-    name: "Settings",
-    icon:MdSettingsApplications,
-    permissionNeeded: "view settings",
+    name: "Roles And Permission",
+    icon: LockClosedIcon,
+    to: "/roles_and_permission",
+    permissionNeeded: "view roles_and_permission",
   },
 ];
 
