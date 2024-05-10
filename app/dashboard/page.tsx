@@ -27,10 +27,13 @@ import {
   Table,
 } from "@/components/ui/table";
 import { DashboardIcon } from "@radix-ui/react-icons";
+import Sidebar from "@/components/mainLayout/sidebar";
+import Header from "@/components/mainLayout/header";
+import MainLayout from "@/components/mainLayout/main";
 
-export default function Component() {
+export default function Dashboard() {
   return (
-    <div className="flex flex-col">
+    <MainLayout>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         <Card className="shadow-md">
           <CardHeader>
@@ -72,7 +75,8 @@ export default function Component() {
           <CardHeader>
             <CardTitle>Some Detail</CardTitle>
             <CardDescription>
-             Just a place holder for the dashboard cards and here is the text part
+              Just a place holder for the dashboard cards and here is the text
+              part
             </CardDescription>
           </CardHeader>
           <CardContent className="flex items-center justify-between">
@@ -140,7 +144,7 @@ export default function Component() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </MainLayout>
   );
 }
 

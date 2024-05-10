@@ -68,8 +68,8 @@ export default function Home() {
           <path
             d="M0 5L1510 5.00013"
             stroke="url(#paint0_linear_1_2462)"
-            stroke-width="8.5"
-            stroke-linecap="round"
+            strokeWidth="8.5"
+            strokeLinecap="round"
           />
           <defs>
             <linearGradient
@@ -80,8 +80,8 @@ export default function Home() {
               y2="114.791"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#2FC56D" />
-              <stop offset="0.893826" stop-color="#2FC56D" stop-opacity="0" />
+              <stop stopColor="#2FC56D" />
+              <stop offset="0.893826" stopColor="#2FC56D" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
