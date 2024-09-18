@@ -1,91 +1,37 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import landingPageMain from "../assets/images/landing_page_main.svg";
-import Image from "next/image";
-import headerLogo from "../assets/images/logo.svg";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { RiLoginCircleLine } from "react-icons/ri";
-export default function Home() {
-  return (
-    <div className="p-2">
-      <div className="z-10 w-full  items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed left-0 top-0 flex w-full justify-start     text-xl">
-          <Image
-            src={headerLogo}
-            style={{ height: "50px" }}
-            className="ml-24"
-            alt="Picture of the author"
-          />
-        </div>
-        <div className="fixed left-0 top-0 flex w-full justify-end text-xl mt-2">
-          <Link href="/auth/login">
-            <Button className="my-1 mr-8">
-              Login
-              <RiLoginCircleLine className="ml-4"></RiLoginCircleLine>
-            </Button>
-          </Link>
-        </div>
-      </div>
+"use client"; 
+import {
+  CardTitle,
+  CardDescription,
+  CardHeader,
+  CardContent,
+  Card,
+} from "@/components/ui/card"; 
+import { ResponsiveLine } from "@nivo/line";
+import {
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableCell,
+  TableBody,
+  Table,
+} from "@/components/ui/table";
+import { DashboardIcon } from "@radix-ui/react-icons"; 
+import MainLayout from "@/components/mainLayout/main";
 
-      <div className="container mt-48">
-        <div className="grid grid-cols-2">
-          <div className="cols-6">
-            <h4 className="text-green-600">Safaricom Distribution Platform</h4>
-            <h3 className="text-6xl mt-8">
-              Welcome to the Safaricom Sales and distribution channel!
-            </h3>
-            <h5 className="text-xl font-thin mt-16">
-              M-PESA application portal enables business and individuals to
-              apply for M-PESA solutions to collect and disburse funds. The
-              portal provides easy step by step process to apply and track your
-              application.
-            </h5>
-          </div>
-          <div className="cols-6">
-            <Image src={landingPageMain} className="ml-24" alt="landing_svg" />
-          </div>
-          <div className="flex justify-start mt-12">
-            <Link href="/auth/login">
-              <Button className="my-1 mr-8 h-10 text-lg">
-                Login And Explore
-                <ArrowRightIcon className=" ml-4 mr-2 mt-1  h-4 w-4" />
-              </Button>
-            </Link>
-            <a href="#" className="ml-4 mt-3 text-green-600">
-              Explore FAQ
-            </a>
-          </div>
+export default function Page() {
+  return (
+    <MainLayout>
+      <div className="h-full flex items-center justify-center mb-32">
+        {/* <div className="">
+          <h1 >This fastest way to sell travel</h1>
         </div>
-        <svg
-        className="mt-48"
-          width="1512"
-          height="10"
-          viewBox="0 0 1512 10"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 5L1510 5.00013"
-            stroke="url(#paint0_linear_1_2462)"
-            strokeWidth="8.5"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1_2462"
-              x1="1332.86"
-              y1="5.00012"
-              x2="9.10595"
-              y2="114.791"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#2FC56D" />
-              <stop offset="0.893826" stopColor="#2FC56D" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
+
+        <div>
+          
+        </div> */}
       </div>
-    </div>
+      
+     
+    </MainLayout>
   );
 }
