@@ -1,21 +1,21 @@
 import { ReactNode } from "react";
 import Header from "./header";
-import Sidebar from "./heroSection";
+
 import TravelBookingPlatform from "../custom/bookinpast";
 interface MainLayoutProps {
     children: ReactNode;
   }
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="w-full h-full">  
-      <div className="bg-black h-full ">
+    <div className="w-full">  
+      <div className="bg-black">
         <Header></Header>  
+      
       </div>
-    
-
       <div className="">
         {children}
         </div>
+       
     </div>
   );
 }

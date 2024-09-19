@@ -4,11 +4,11 @@ import { Button } from "../ui/button";
 import { BellIcon } from "@radix-ui/react-icons";
 import { DropdownMenu } from "../ui/dropdown-menu";
 import Image from "next/image";
-import HeroSection from "./heroSection";
+
 
 export default function Header() {
   return (
-    <header className="h-full flex items-center  flex-col ">
+    <header className="flex items-center  flex-col ">
       <div className="pt-20 flex items-center justify-center flex-col">
         <div className="flex flex-col items-center justify-center">
         <h2 className="text-white text-6xl text-center">Start selling travel today <p>on your own website </p></h2>
@@ -20,9 +20,10 @@ export default function Header() {
     
       </div>
 
-      <div className="absolute bottom-0  flex items-center ">
-        <HeroSection />
-      </div>
+      <div className='bg-white rounded-xl mt-20'>
+       <img src='images/Links Template 13.png' className='sm:h-full '/>
+        
+    </div>
     </header>
   );
 }

@@ -1,86 +1,95 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Flight } from '@/types/flights';
+import ReactLoading from 'react-loading';
+  
 
 function ViewPage() {
+
+    const [destinations, setDestinations] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const[flight, setFlights] = useState<Flight[]>([])
+  
+    // useEffect(() => {
+    //   const fetchDestinations = async () => {
+    //     try {
+    //       const response = await axios.get('https://freetestapi.com/api/v1/destinations', {
+    //         params: {
+    //           limit: 5, 
+    //         },
+    //       });
+  
+    //       setDestinations(response.data);
+    //       setLoading(false);
+    //     } catch (err:any) {
+    //       // Handle error
+    //       setError(err.message || "An error occurred");
+    //       setLoading(false);
+    //     }
+    //   };
+  
+    //   fetchDestinations();
+    // }, []);
+  
+
+    // console.log('mydest', destinations)
+
+    useEffect(() => {
+        const fetchFlights = async () => {
+          try {
+            const response = await axios.get('/api/flight');
+            setFlights(response.data);
+            console.log('thisdata', response.data)
+            setLoading(false);
+          } catch (err:any) {
+            setError(err.message || 'An error occurred');
+            setLoading(false);
+          }
+        };
+    
+        fetchFlights();
+      }, []);
+    
+      if (loading) return <ReactLoading type={'spin'} color={'blue'} height={'5%'} width={'5%'} className='flex justify-center items-center'/>
+      if (error) return <p>Error: {error}</p>;
+
   return (
     <div className=" p-5">
       {/* Top row: Search and Booking Interface */}
       <div className="flex justify-between space-x-4 mb-8">
         {/* Search Component */}
-        <div className="bg-sky-50 p-4 shadow rounded bg-sky flex flex-col pr-0">
-           <div className='flex flex-col '>
-                <div className='  bg-sky-50 p-3  flex rounded-tl-xl justify-between shadow-lg'>
-                    <p className='p-2'>Return</p> 
-                    <p className='bg-blue-600 py-1  text-white px-2'>Select Seart</p>
-                    <p className='bg-white py-1 px-2'>1 stop</p>
-                    <p className='bg-white py-1 px-2'>Airline</p>
-                </div>
 
-                <div className='p-4 h-24 bg-white mb-3 rounded-bl-xl flex flex-col shadow-lg shadow-gray-400'>
-                        <p className='text-end'>10:30</p>
-                        <p className='text-end'>Murtala Muhammed (LOS)Lagos</p>
-                </div>
-
-            </div> 
-
-            <div>
-
-                <h2 className="text-lg font-semibold">Search</h2>
-                <p>Make searching flights an intuitive experience for your customers.</p>
-            </div>
-        </div>
-
-        {/* Booking Component */}
-        <div className="bg-sky-50 p-4 shadow rounded bg-sky flex flex-col pr-0">
-           <div className='flex flex-col '>
-                <div className='  bg-sky-50 p-3  flex rounded-tl-xl justify-between shadow-lg'>
-                    <p></p>
-                    <p>VS</p>
-                    <p>411</p>
-                    <p>LOS-LHR</p>
-                    <p>10:30PM - 05:25OM +1 </p>
-                    <p>06:55</p>
-                </div>
-
-                <div className='p-4 h-24 bg-white mb-3 rounded-bl-xl flex flex-col shadow-lg shadow-gray-400'>
-                        <p className='text-end'>10:30</p>
-                        <p className='text-end'>Murtala Muhammed (LOS)Lagos</p>
-                </div>
-
-            </div> 
-
-            <div>
-
-                <h2 className="text-lg font-semibold">Book</h2>
-                <p>Capture all relevant details from your customer in a one-step checkout.</p>
-            </div>
-        </div>
-
-        {/* Ancillaries Component */}
-        <div className="bg-sky-50 p-4 shadow rounded bg-sky flex flex-col pr-0">
-           <div className='flex flex-col '>
-                <div className='  bg-sky-50 p-3  flex rounded-tl-xl justify-between shadow-lg'>
-                    <p className='p-2'>Return</p> 
-                    <p className='bg-blue-600 py-1  text-white px-2'>Select Seart</p>
-                    <p className='bg-white py-1 px-2'>1 stop</p>
-                    <p className='bg-white py-1 px-2'>Airline</p>
-                </div>
-
-                <div className='p-4 h-24 bg-white mb-3 rounded-bl-xl flex flex-col shadow-lg shadow-gray-400'>
-                        <p className='text-end'>10:30</p>
-                        <p className='text-end'>Murtala Muhammed (LOS)Lagos</p>
-                </div>
-
-            </div> 
-
-            <div>
-
-                <h2 className="text-lg font-semibold">Search</h2>
-                <p>Make searching flights an intuitive experience for your customers.</p>
-            </div>
-        </div>
+        {flight.map((item: Flight, id:any) => (
+            <div className="bg-sky-50 p-4 shadow rounded bg-sky flex flex-col pr-0" >
+            <div className='flex flex-col' key={id}>
+             
+                 <div className='  bg-sky-50 p-3  flex rounded-tl-xl justify-between shadow-lg'>
+                     <p className='p-2'>Return</p> 
+                     <p className='bg-blue-600 py-1  text-white px-2'>{item.flight_number}</p>
+                     <p className='bg-white py-1 px-2'>{item.stops}</p>
+                     <p className='bg-white py-1 px-2'>{item.airline}</p>
+                 </div>
+        
+                 
+ 
+                 <div className='p-4 h-24 bg-white mb-3 rounded-bl-xl flex flex-col shadow-lg shadow-gray-400'>
+                         <p className='text-end'>{item.departure_time}</p>
+                         <p className='text-end'>{item.arrival_time}</p>
+                 </div>
+ 
+             </div> 
+ 
+             <div>
+ 
+                 <h2 className="text-lg font-semibold">{item.title}</h2>
+                 <p>{item.description}</p>
+             </div>
+         </div>
+        ))}
+    
       </div>
 
-      {/* Bottom row: Payments and Order Management */}
       <div className="flex space-x-10">
         {/* Payments Component */}
         <div className="bg-sky-50 p-6 shadow rounded-xl bg-sky flex flex-col pr-0 w-full">

@@ -23,13 +23,12 @@ import TravelBookingPlatform from "@/components/custom/bookinpast";
 export default function Page() {
   return (
     <MainLayout>
-      <div className="">
+      <div className="h-full">
           <FastestWayToSellTravel />
-        
+          <TravelBookingPlatform />
+         
         </div>
 
-
-     
      
     </MainLayout>
   );
