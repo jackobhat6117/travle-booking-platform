@@ -53,9 +53,16 @@ function ViewPage() {
                 <p className="bg-white py-1 px-2">{item.airline}</p>
               </div>
 
-              <div className="p-4 h-24 bg-white mb-3 rounded-bl-xl flex flex-col shadow-lg shadow-gray-400">
-                <p className="text-end">{item.departure_time}</p>
-                <p className="text-end">{item.arrival_time}</p>
+              <div className="p-4 h-24 bg-white mb-3 rounded-bl-xl flex justify-between shadow-lg shadow-gray-400">
+                <div>
+                  <p className="text-end">{item.departure_time}</p>
+                  <p className="text-end">{item.price.currency}</p>
+                </div>
+
+                <div>
+                  <p className="text-end">{item.departure_time}</p>
+                  <p className="text-end">{item.price.total}</p>
+                </div>
               </div>
             </div>
 
