@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Dongle, Dosis, Gowun_Dodum } from "next/font/google";
-import Sidebar from "../components/mainLayout/heroSection";
+
 export const metadata: Metadata = {
   title: "One Platform",
   description: "One platform to rule them all",
