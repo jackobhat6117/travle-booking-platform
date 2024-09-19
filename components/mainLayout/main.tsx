@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./header";
 
-import TravelBookingPlatform from "../custom/bookinpast";
+import TravelBookingPlatform from "../custom/promotionsection";
 interface MainLayoutProps {
     children: ReactNode;
   }
